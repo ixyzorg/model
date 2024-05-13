@@ -20,9 +20,9 @@
 <script setup>
 import { ref } from 'vue'
 import { User, Lock } from '@element-plus/icons-vue'
-import {userLoginService} from '@/api/login'
-import   { useUserStore } from '@/stores' 
-import router from '@/router';
+import { userLoginService } from '@/api/login'
+import { useUserStore } from '@/stores'
+import router from '@/router'
 const options = {
   fpsLimit: 120,
   interactivity: {
@@ -101,13 +101,13 @@ const rules = {
 }
 const onLogin = async () => {
   await formRef.value.validate()
- const res = await userLoginService(form.value)
- const userStore = useUserStore()
- userStore.setUserInfo(res)
- ElMessage({
-  type: 'success',
-  message: '登录成功'
- })
- router.push('/')
+  const res = await userLoginService(form.value)
+  const userStore = useUserStore()
+  userStore.setUserInfo(res)
+  ElMessage({
+    type: 'success',
+    message: '登录成功'
+  })
+  router.push('/')
 }
 </script>
